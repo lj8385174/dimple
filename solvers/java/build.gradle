@@ -56,7 +56,8 @@ targetCompatibility = 1.7
 repositories {
   mavenCentral()
   maven {
-    url "http://mbari-maven-repository.googlecode.com/svn/repository/"
+    //url "http://mbari-maven-repository.googlecode.com/svn/repository/"
+	url "http://git.oschina.net/mfary/mbari-maven-repository/raw/master/repository/"
   }
   maven {
     url "http://www.array.ca/nest-web/maven/"

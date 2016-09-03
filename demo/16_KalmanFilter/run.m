@@ -76,6 +76,10 @@ H = [1 0 0 0 0 0 0 0;
 setSolver('Gaussian');
 
 %Create the FactorGraph for a single time step
+
+% fz, fv,fx , fznonoise are all RealJoint Type variables, not factors
+% where is fp? --- fx is variable of position
+% z stands for accerleration?
 fz = RealJoint(numel(p0));
 fz.Name = 'fz';
 fv = RealJoint(numel(p0));
@@ -83,7 +87,11 @@ fv.Name = 'fv';
 fznonoise = RealJoint(numel(p0));
 fx = RealJoint(numel(x00));
 fxnext = RealJoint(numel(x00));
+
+% nested factor graph is a subgraph of a large one
 nested = FactorGraph(fx,fxnext,fznonoise,fv,fz);
+% H is a variable? or a factor ? 
+% factor is represented by square 
 nested.addFactor(@constmult,fznonoise,H,fx);
 nested.addFactor(@add,fz,fv,fznonoise);
 nested.addFactor(@constmult,fxnext,F,fx);
@@ -235,3 +243,6 @@ plot(fgxs,fgys,'mo-');
 legend('Actual Positions','Noisy Measurements','Kalman Filter Guesses','Dimple guesses');
 xlabel('x position');
 ylabel('y position');
+
+figure();
+fg.plot();
