@@ -28,7 +28,7 @@ function addDimplePath(DimpleDirectory, XUnitDirectory, JavaDir, BerToolDirector
     loc = strfind(dimple_base,fullfile([filesep 'modelers'], 'matlab'));
     dimple_base = dimple_base(1:loc-1);
     
-    bLog = false;
+    bLog = true;
     
     Paths = {};
     

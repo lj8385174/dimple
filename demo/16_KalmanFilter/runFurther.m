@@ -14,6 +14,12 @@
 %   limitations under the License.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% run Further for studying the deep charactors of this libary and more..
+% Use another method to implement KalmanFilter
+% Compare the differences between these methods.
+% Add some transition error
+% Next step we will add another message passing algorithm. I will do some research in Message Passing algorithm.
+
 rand('seed',1);
 randn('seed',1);
 %{
@@ -92,7 +98,7 @@ fxnext = RealJoint(numel(x00));
 nested = FactorGraph(fx,fxnext,fznonoise,fv,fz);
 % H is a variable? or a factor ? 
 % factor is represented by square 
-nested.addFactor(@constmult,fznonoise,H,fx);
+nested.addFactor(@constmult,fznonoise,H,fxnext);
 nested.addFactor(@add,fz,fv,fznonoise);
 nested.addFactor(@constmult,fxnext,F,fx);
 
@@ -207,7 +213,7 @@ ds = MultivariateDataSink();
 fxs.DataSink = ds;
 
 %Solve
-fg.solve();
+fg.solve(); 
 
 %retreive the results
 % WHY should write like this ?

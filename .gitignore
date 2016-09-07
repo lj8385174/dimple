@@ -33,3 +33,8 @@ solvers/java/*_java_*.xml
 modelers/matlab/benchmarks/*_matlab_*.xml
 gradle.prefs
 *.golden1
+modelers/matlab/lib/xunit_dist/matlab_xunit/doc/helpsearch-v3/_0.cfe
+modelers/matlab/lib/xunit_dist/matlab_xunit/doc/helpsearch-v3/_0.cfs
+modelers/matlab/lib/xunit_dist/matlab_xunit/doc/helpsearch-v3/_0.si
+modelers/matlab/lib/xunit_dist/matlab_xunit/doc/helpsearch-v3/segments.gen
+modelers/matlab/lib/xunit_dist/matlab_xunit/doc/helpsearch-v3/segments_1
